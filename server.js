@@ -5,10 +5,12 @@ const cors = require("cors");
 require('dotenv').config();
 const db = require('./database/db');
 const authrouter = require("./routes/auth");
-
+const chatrouter = require("./routes/chat");
 
 
 try {
+
+
   const corsOptions = {
     origin: '*',//[process.env.APP_URL_PROD,process.env.APP_URL_CLIENTBOOKING,process.env.APP_URL_DEV_CLIENTBOOKING],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -22,6 +24,8 @@ try {
   app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
   
   app.use('/api',authrouter);
+  app.use('/chat',chatrouter);
+
   db.raw('SELECT 1')
   .then(() => {
     console.log('Connected to the database!');
