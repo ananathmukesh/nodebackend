@@ -1,4 +1,6 @@
-const db = require('../database/db');
+// const db = require('../database/db');
+const db = require("../database/liveServer");
+
 const httpstatus = require('../util/httpstatus');
 
 const getMsgSenderReceiver = async(req,res)=>{

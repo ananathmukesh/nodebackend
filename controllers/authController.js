@@ -1,5 +1,7 @@
 const { validateSignup } = require("../validator/validator");
-const db = require('../database/db');
+// const db = require('../database/db');
+const db = require("../database/liveServer");
+
 const sendMail = require('../util/sendMail');
 const Joi = require('joi');
 const bcrypt = require('bcrypt');
