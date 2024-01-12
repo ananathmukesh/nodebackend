@@ -27,6 +27,12 @@ try {
   app.use('/api',authrouter);
   app.use('/chat',chatrouter);
 
+  app.post('/',async(req,res)=>{
+    res.status(200).json({
+      message:"welcome Backend project"
+    });
+  })
+
   livedb.raw('SELECT 1')
   .then(() => {
     console.log('Connected to the database!');
