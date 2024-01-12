@@ -40,7 +40,7 @@ try {
   .catch((error) => {
     console.log('Error connecting to the database:', error);
   });
-  app.listen(process.env.PORT, () => {
+  app.listen(process.env.PORT || 8001, () => {
       console.log(`Server is running at http://localhost:${process.env.PORT}`);
     });
 } catch (error) {
