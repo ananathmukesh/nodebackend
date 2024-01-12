@@ -27,7 +27,7 @@ try {
   app.use('/api',authrouter);
   app.use('/chat',chatrouter);
 
-  app.post('/',async(req,res)=>{
+  app.get('/',async(req,res)=>{
     res.status(200).json({
       message:"welcome Backend project"
     });
