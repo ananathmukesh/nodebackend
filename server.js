@@ -6,6 +6,7 @@ require('dotenv').config();
 const db = require('./database/db');
 const authrouter = require("./routes/auth");
 const chatrouter = require("./routes/chat");
+const livedb = require("./database/liveServer");
 
 
 try {
@@ -26,12 +27,12 @@ try {
   app.use('/api',authrouter);
   app.use('/chat',chatrouter);
 
-  db.raw('SELECT 1')
+  livedb.raw('SELECT 1')
   .then(() => {
     console.log('Connected to the database!');
   })
   .catch((error) => {
-    console.log('Error connecting to the database:', error.message);
+    console.log('Error connecting to the database:', error);
   });
   app.listen(process.env.PORT, () => {
       console.log(`Server is running at http://localhost:${process.env.PORT}`);
